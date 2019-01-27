@@ -194,3 +194,61 @@ let numString = "Your sandwich will be $5.00";
 let noNumRegex = /\D/g; // Change this line
 let result = numString.match(noNumRegex).length;
 
+// You need to check all the usernames in a database. 
+// Here are some simple rules that users have to follow 
+// when creating their username.
+
+// 1) The only numbers in the username have to be at the end. 
+// There can be zero or more of them at the end.
+
+// 2) Username letters can be lowercase and uppercase.
+
+// 3) Usernames have to be at least two characters long. 
+// A two-letter username can only use alphabet letter characters.
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z]{2,}\d*$/i; // Change this line
+let result = userCheck.test(username);
+
+// You can search for whitespace using \s, which is a lowercase s. 
+// This pattern not only matches whitespace, but also carriage 
+// return, tab, form feed, and new line characters. 
+
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; // Change this line
+let result = sample.match(countWhiteSpace);
+
+// Search for non-whitespace using \S, which is an uppercase s. 
+// This pattern will not match whitespace, carriage return, 
+// tab, form feed, and new line characters. 
+
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g; // Change this line
+let result = sample.match(countNonWhiteSpace);
+
+// You can specify the lower and upper number of patterns 
+// with quantity specifiers. Quantity specifiers are used with 
+// curly brackets ({ and }). You put two numbers between the curly brackets 
+// - for the lower and upper number of patterns.
+
+let ohStr = "Ohhh no";
+let ohRegex = /oh{3,6}\sno/i; // Change this line
+let result = ohRegex.test(ohStr);
+
+// You can specify the lower and upper number of patterns with quantity 
+// specifiers using curly brackets. Sometimes you only want to specify 
+// the lower number of patterns with no upper limit.
+
+// To only specify the lower number of patterns, 
+// keep the first number followed by a comma.
+
+let haStr = "Hazzzzah";
+let haRegex = /haz{4,}ah/i; // Change this line
+let result = haRegex.test(haStr);
+
+// You can specify the lower and upper number of patterns with quantity 
+// specifiers using curly brackets. Sometimes you only want a 
+// specific number of matches.
+
+// To specify a certain number of patterns, just have 
+// that one number between the curly brackets.
