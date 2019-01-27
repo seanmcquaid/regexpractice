@@ -252,3 +252,73 @@ let result = haRegex.test(haStr);
 
 // To specify a certain number of patterns, just have 
 // that one number between the curly brackets.
+
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; // Change this line
+let result = timRegex.test(timStr);
+
+// You can specify the possible existence of an element with a question mark,
+// ?. This checks for zero or one of the preceding element. 
+// You can think of this symbol as saying the previous element is optional.
+
+let favWord = "favorite";
+let favRegex = /favou?rite/; // Change this line
+let result = favRegex.test(favWord);
+
+// Lookaheads are patterns that tell JavaScript to look-ahead in your 
+// string to check for patterns further along. This can be useful 
+// when you want to search for multiple patterns over the same string.
+
+// There are two kinds of lookaheads: positive lookahead and negative 
+// lookahead.
+
+// A positive lookahead will look to make sure the element in the 
+// search pattern is there, but won't actually match it. A positive 
+// lookahead is used as (?=...) where the ... is the required part that 
+// is not matched.
+
+// On the other hand, a negative lookahead will look to make 
+// sure the element in the search pattern is not there. A negative 
+// lookahead is used as (?!...) where the ... is the pattern that 
+// you do not want to be there. The rest of the pattern is returned 
+// if the negative lookahead part is not present.
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{5,})(?=\D*\d{2})/; // Change this line
+let result = pwRegex.test(sampleWord);
+
+// You can search for repeat substrings using capture groups. 
+// Parentheses, ( and ), are used to find repeat substrings. 
+// You put the regex of the pattern that will repeat in between 
+// the parentheses.
+
+// To specify where that repeat string will appear, 
+// you use a backslash (\) and then a number. This number starts at 1 
+// and increases with each additional capture group you use. 
+// An example would be \1 to match the first group.
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)(\s)\1\s\1$/; // Change this line
+let result = reRegex.test(repeatNum);
+
+// You can search and replace text in a string using .replace() 
+// on a string. The inputs for .replace() is first the regex 
+// pattern you want to search for. The second parameter is the 
+// string to replace the match or a function to do something.
+
+let huhText = "This sandwich is good.";
+let fixRegex = /good/; // Change this line
+let replaceText = "okey-dokey"; // Change this line
+let result = huhText.replace(fixRegex, replaceText);
+
+// Sometimes whitespace characters around strings are not 
+// wanted but are there. Typical processing of strings is to 
+// remove the whitespace at the start and end of it.
+
+
+// Write a regex and use the appropriate string methods to 
+// remove whitespace at the beginning and end of strings.
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // Change this line
+let result = hello.replace(wsRegex, ""); // Change this line
